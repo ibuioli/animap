@@ -3,7 +3,7 @@
 // by Mario Klingemann 
 // <http://incubator.quasimondo.com>
 // ==================================================
-void fastblur(PImage img,int radius)
+public void fastblur(PImage img,int radius)
 {
  if (radius<1){
     return;
