@@ -2,6 +2,7 @@ import netP5.*;
 import oscP5.*;
 import processing.video.*;
 import blobDetection.*;
+import java.net.InetAddress;
 
 OscP5 oscP5;
 OscP5 tel;
@@ -12,6 +13,7 @@ BlobDetection theBlobDetection;
 Blob b;
 PImage img;
 PGraphics pg2D;
+String ip;
 float accelerometerX, accelerometerY, accelerometerZ, 
   giroscopeX, giroscopeY, giroscopeZ;
 float t;
@@ -37,6 +39,17 @@ public void setup() {
   loc = new NetAddress("127.0.0.1", 12001);
   ///////////////
 
+  //IP//
+  InetAddress inet;
+  try {
+    inet = InetAddress.getLocalHost();
+    ip = inet.getHostAddress();
+  }
+  catch (Exception e) {
+    e.printStackTrace();
+  }
+  ////
+
   //BLOB DETECTION//
   img = new PImage(640, 480); 
   theBlobDetection = new BlobDetection(img.width, img.height);
@@ -55,8 +68,9 @@ public void draw() {
 
   pg2D.beginDraw();
   pg2D.background(0);
-  pg2D.textSize(20);
-  pg2D.text(t, 20, height-20);
+  pg2D.textSize(14);
+  pg2D.text("TH: "+nf(t, 1, 2), 20, height-20);
+  pg2D.text("IP: "+ip, 130, height-20);
   pg2D.pushStyle();
   pg2D.textSize(12);
   pg2D.fill(255);
@@ -67,7 +81,7 @@ public void draw() {
   if (cam.available() == true) {
     pg2D.fill(0, 255, 0);
     pg2D.text("OK", width-11, height-60);
-  }else{
+  } else {
     pg2D.fill(255, 10, 10);
     pg2D.text("NO", width-10, height-60);
   }
@@ -97,7 +111,7 @@ public void draw() {
 
   if (theBlobDetection.getBlob(0) != null) {
     b = theBlobDetection.getBlob(0);
-    
+
     pushMatrix();
     translate(b.x*width+60, b.y*height+60);
     rotateZ(radians(accelerometerX * 10));
