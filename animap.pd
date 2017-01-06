@@ -1,8 +1,7 @@
-#N canvas 562 89 416 548 10;
+#N canvas 559 93 416 548 10;
 #X declare -path libw/mrpeach;
 #X declare -path libw/cyclone;
 #X declare -path libw/gem;
-#X declare -lib Gem;
 #X declare -lib Gem;
 #X declare -path libl/gem;
 #X declare -path libl/mrpeach;
@@ -26,10 +25,10 @@
 #X msg 270 41 0;
 #X obj 270 -22 loadbang;
 #X obj 270 20 metro 3000;
-#X obj 34 112 nbx 4 20 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--16662 -203904 -1 0 256;
-#X obj 119 112 nbx 4 20 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--13381 -204786 -1 0 256;
+#X obj 34 112 nbx 4 20 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -16662 -203904 -1 0 256;
+#X obj 119 112 nbx 4 20 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -13381 -204786 -1 0 256;
 #X text 4 139 -------------------------------;
 #X connect 7 0 1 0;
 #X connect 7 0 14 0;
@@ -46,13 +45,13 @@
 #X connect 13 0 11 0;
 #X coords 0 -1 1 1 230 65 1 1 90;
 #X restore 88 63 pd datos;
-#N canvas 289 93 936 622 interfaz 0;
+#N canvas 280 20 929 621 interfaz 0;
 #X obj 200 24 gemhead;
 #X obj 200 559 square;
 #X obj 200 228 translateXYZ;
-#X obj -144 21 vradio 15 1 0 3 empty \$0-full empty 0 -8 0 10 -262144
+#X obj -144 61 vradio 15 1 0 3 empty \$0-full empty 0 -8 0 10 -262144
 -1 -1 0;
-#X msg -144 75 reset \, fullscreen \$1 \, create \, 1;
+#X msg -144 115 reset \, fullscreen \$1 \, create \, 1;
 #X msg -134 186 0 \, destroy;
 #N canvas 333 186 450 300 esc 0;
 #X obj 65 20 gemkeyboard;
@@ -72,8 +71,8 @@
 #X obj -144 238 gemwin;
 #X obj 223 58 r \$0-x;
 #X obj 273 58 r \$0-y;
-#X text -126 19 Default;
-#X text -126 35 FullScreen 1;
+#X text -126 59 Default;
+#X text -126 75 FullScreen 1;
 #X obj 542 150 cnv 15 230 260 empty empty empty 20 12 0 14 -203904
 -66577 0;
 #X obj 744 166 bng 20 250 50 0 \$0-reset empty Reset -4 -6 0 10 -204800
@@ -498,7 +497,7 @@
 #X obj 335 367 r \$0-al2;
 #X obj 744 217 vradio 20 1 0 3 \$0-full empty GEM 1 -8 0 10 -204800
 -260097 -1 0;
-#X text -126 51 FullScreen 2;
+#X text -126 91 FullScreen 2;
 #X text 746 237 F1;
 #X text 746 257 F2;
 #X obj 88 84 t b f;
@@ -552,18 +551,18 @@
 #X msg -144 215 view 0 0 20 \, perspec -1 1 -1 1 4 50;
 #X msg 274 484 0;
 #X obj -45 454 r cargar_video;
-#X obj 689 171 nbx 4 15 -1e+37 1e+37 0 0 empty \$0-res empty 0 -8 0
-10 -232576 -45076 -1 0 256;
-#X obj 689 208 nbx 4 15 -1e+37 1e+37 0 0 empty \$0-resy empty 0 -8
+#X obj 689 171 nbx 4 15 -1e+037 1e+037 0 0 empty \$0-res empty 0 -8
 0 10 -232576 -45076 -1 0 256;
-#X obj 689 247 nbx 4 15 -1e+37 1e+37 0 0 empty \$0-posx empty 0 -8
+#X obj 689 208 nbx 4 15 -1e+037 1e+037 0 0 empty \$0-resy empty 0 -8
+0 10 -232576 -45076 -1 0 256;
+#X obj 689 247 nbx 4 15 -1e+037 1e+037 0 0 empty \$0-posx empty 0 -8
 0 10 -204786 -13381 -1 0 256;
-#X obj 689 281 nbx 4 15 -1e+37 1e+37 0 0 empty \$0-posy empty 0 -8
+#X obj 689 281 nbx 4 15 -1e+037 1e+037 0 0 empty \$0-posy empty 0 -8
 0 10 -204786 -13381 -1 0 256;
-#X obj 689 316 nbx 4 15 -1e+37 1e+37 0 0 empty \$0-an empty 0 -8 0
-10 -261682 -86853 -1 10 256;
-#X obj 689 350 nbx 4 15 -1e+37 1e+37 0 0 empty \$0-al empty 0 -8 0
-10 -261682 -86853 -1 10 256;
+#X obj 689 316 nbx 4 15 -1e+037 1e+037 0 0 empty \$0-an empty 0 -8
+0 10 -261682 -86853 -1 10 256;
+#X obj 689 350 nbx 4 15 -1e+037 1e+037 0 0 empty \$0-al empty 0 -8
+0 10 -261682 -86853 -1 10 256;
 #X text 638 369 |;
 #X text 638 379 |;
 #X text 638 389 |;
@@ -571,17 +570,16 @@
 #X obj 217 254 r \$0-rz;
 #X obj 217 274 * 9;
 #X obj 272 276 * 9;
-#N canvas 343 261 450 300 cargar 0;
-#X obj 17 78 declare -path libw/mrpeach;
-#X obj 17 98 declare -path libw/cyclone;
+#N canvas 340 265 450 300 cargar 0;
+#X obj 17 59 declare -path libw/mrpeach;
+#X obj 17 79 declare -path libw/cyclone;
 #X obj 17 39 declare -path libw/gem;
-#X obj 17 59 declare -lib Gem;
-#X obj 17 189 declare -lib Gem;
-#X obj 17 169 declare -path libl/gem;
-#X obj 17 208 declare -path libl/mrpeach;
-#X obj 17 228 declare -path libl/cyclone;
+#X obj 17 209 declare -lib Gem;
+#X obj 17 127 declare -path libl/gem;
+#X obj 17 147 declare -path libl/mrpeach;
+#X obj 17 167 declare -path libl/cyclone;
 #X text 16 22 Windows Libs;
-#X text 14 152 Linux Libs;
+#X text 14 110 Linux Libs;
 #X restore -144 298 pd cargar;
 #X text 750 218 D;
 #N canvas 126 204 535 289 conex 0;
