@@ -30,7 +30,7 @@ public void setup() {
   ortho();
   noStroke();
   rectMode(CENTER);
-  font = createFont("mono.ttf", 48, false);
+  font = loadFont("mono.vlw");
   pg2D = createGraphics(width, height, JAVA2D);
   ///////////
 
@@ -109,10 +109,11 @@ public void draw() {
       pg2D.fill(0, 130, 0);
       pg2D.text("OK", width-11, height-20);
     }
+    
     pg2D.fill(0);
     pg2D.textSize(11);
-    pg2D.text(b.x, b.x*width - 16, b.y*height - 18);
-    pg2D.text(b.y, b.x*width - 16, b.y*height - 8);
+    pg2D.text(b.x, b.x*width, b.y*height - 18);
+    pg2D.text(b.y, b.x*width, b.y*height - 8);
     pg2D.endDraw();
     image(pg2D, 0, 0);
 
@@ -123,10 +124,19 @@ public void draw() {
     noFill();
     stroke(0);
     pushMatrix();
-    translate(b.x*width+60, b.y*height+60);
+    translate(b.x*width+55, b.y*height+55, 100);
     rotateZ(radians(accelerometerX * 10));
     rotateX(radians(accelerometerZ * 10));
     rect(0, 0, 100, 100);
+    pushMatrix();
+    translate(-50, -50);
+    line(25, 0, 25, 100);
+    line(50, 0, 50, 100);
+    line(75, 0, 75, 100);
+    line(0, 25, 100, 25);
+    line(0, 50, 100, 50);
+    line(0, 75, 100, 75);
+    popMatrix();
     popMatrix();
     popStyle();
 
@@ -137,7 +147,7 @@ public void draw() {
     my.add(b.y);
     oscP5.send(mx, loc);
     oscP5.send(my, loc);
-  }else{
+  } else {
     pg2D.beginDraw();
     pg2D.background(196, 196, 252);
     pg2D.textFont(font);
