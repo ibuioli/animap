@@ -15,7 +15,7 @@ PFont font;
 PGraphics pg2D;
 String ip;
 float accelerometerX, accelerometerY, accelerometerZ, 
-  giroscopeX, giroscopeY, giroscopeZ;
+  alpha, beta, gamma;
 float t;
 
 public void setup() {
@@ -85,9 +85,9 @@ public void draw() {
     pg2D.text("IP: "+ip, 130, height-20);
     pg2D.textSize(12);
     pg2D.textAlign(RIGHT);
-    pg2D.text("cámara:", width-35, height-60);
-    pg2D.text("acelerómetro:", width-35, height-40);
-    pg2D.text("giroscopio:", width-35, height-20);
+    pg2D.text("camera:", width-35, height-60);
+    pg2D.text("accelerometer:", width-35, height-40);
+    pg2D.text("orientation:", width-35, height-20);
     if (cam.available() == true) {
       pg2D.fill(0, 130, 0);
       pg2D.text("OK", width-11, height-60);
@@ -102,7 +102,7 @@ public void draw() {
       pg2D.fill(0, 130, 0);
       pg2D.text("OK", width-11, height-40);
     }
-    if (giroscopeX == 0.0 && giroscopeY == 0.0 && giroscopeZ == 0.0) {
+    if (alpha == 0.0 && beta == 0.0 && gamma == 0.0) {
       pg2D.fill(200, 0, 0);
       pg2D.text("NO", width-10, height-20);
     } else {
@@ -140,7 +140,7 @@ public void draw() {
     popMatrix();
     popStyle();
 
-    //DATOS CAMARA//
+    //DATA CAMERA//
     OscMessage mx = new OscMessage("/x");
     OscMessage my = new OscMessage("/y");
     mx.add(b.x);
@@ -154,15 +154,15 @@ public void draw() {
     pg2D.textSize(14);
     pg2D.fill(0);
     pg2D.textAlign(CENTER);
-    pg2D.text("-No Objectos-", width/2, height/2);
+    pg2D.text("-No Objects-", width/2, height/2);
     pg2D.textAlign(LEFT);
     pg2D.text("TH: "+nf(t, 1, 2), 20, height-20);
     pg2D.text("IP: "+ip, 130, height-20);
     pg2D.textSize(12);
     pg2D.textAlign(RIGHT);
-    pg2D.text("cámara:", width-35, height-60);
-    pg2D.text("acelerómetro:", width-35, height-40);
-    pg2D.text("giroscopio:", width-35, height-20);
+    pg2D.text("camera:", width-35, height-60);
+    pg2D.text("accelerometer:", width-35, height-40);
+    pg2D.text("orientation:", width-35, height-20);
     if (cam.available() == true) {
       pg2D.fill(0, 130, 0);
       pg2D.text("OK", width-11, height-60);
@@ -177,7 +177,7 @@ public void draw() {
       pg2D.fill(0, 130, 0);
       pg2D.text("OK", width-11, height-40);
     }
-    if (giroscopeX == 0.0 && giroscopeY == 0.0 && giroscopeZ == 0.0) {
+    if (alpha == 0.0 && beta == 0.0 && gamma == 0.0) {
       pg2D.fill(200, 0, 0);
       pg2D.text("NO", width-10, height-20);
     } else {
@@ -188,16 +188,16 @@ public void draw() {
     image(pg2D, 0, 0);
   }
 
-  //DATOS TELEFONO//  
-  OscMessage acc = new OscMessage("/accelerometer");
-  OscMessage gir = new OscMessage("/giroscope");
+  //DATA PHONE//  
+  OscMessage acc = new OscMessage("/acc");
+  OscMessage gir = new OscMessage("/ori");
 
   acc.add(accelerometerX);
   acc.add(accelerometerY);
   acc.add(accelerometerZ);
-  gir.add(giroscopeX);
-  gir.add(giroscopeY);
-  gir.add(giroscopeZ);
+  gir.add(alpha);
+  gir.add(beta);
+  gir.add(gamma);
 
   oscP5.send(acc, loc);
   oscP5.send(gir, loc);

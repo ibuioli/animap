@@ -1,11 +1,8 @@
 # Animap
-## v 1.2.1-beta
 
-Software Animap para Realidad Aumentada Espacial con adaptabilidad dinámica, interacción con posición e inclinación de un objeto.
-Inicialmente desarrollado en el marco de la Beca CIN EVC.
+Animap, Software for Space Augmented Reality with dynamic adaptability, interaction with position and inclination of an object. Its works with cell phone data, so It don't require a specific Hardware. Compatible with App Senmap: [Senmap on Github](https://github.com/ibuioli/senmap) 
+Initially developed within the framework of the CIN EVC Scholarship.
 
-Programado en *pureData* y *Processing*.
-* Processing 2+: Se requieren las librerías *video*, *oscP5* y *blobDetection*.
-* pureData 0.43+: Se requieren las librerías *Gem*, *cyclone* y *MrPeach* o versión *Pd-extended*.
-
-Versiones compiladas disponibles, consultar en la sección de [Release](https://github.com/ibuioli/animap/releases) para adquirir el Binario más reciente.
+Develop on *pureData* and *Processing*.
+* Processing 2+: It needs libs *video*, *oscP5* and *blobDetection*.
+* pureData 0.43+: It needs libs *Gem*, *cyclone* and *MrPeach* or version *Pd-extended*.

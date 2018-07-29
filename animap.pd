@@ -1,4 +1,4 @@
-#N canvas 756 50 326 517 10;
+#N canvas 561 111 327 521 10;
 #X declare -path libw/mrpeach;
 #X declare -path libw/cyclone;
 #X declare -path libw/gem;
@@ -6,7 +6,7 @@
 #X declare -path libl/gem;
 #X declare -path libl/mrpeach;
 #X declare -path libl/cyclone;
-#N canvas 548 298 450 300 datos 0;
+#N canvas 546 302 450 300 datos 0;
 #X obj 1 90 cnv 15 230 65 empty empty ESTADO 10 12 0 14 -203904 -1
 0;
 #X obj 13 112 tgl 20 1 empty empty empty 17 7 0 15 -228856 -1 -1 0
@@ -25,10 +25,10 @@
 #X msg 250 95 0;
 #X obj 250 33 loadbang;
 #X obj 250 74 metro 3000;
-#X obj 34 112 nbx 4 20 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
-10 -228856 -1 -1 0 256;
-#X obj 119 112 nbx 4 20 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
-10 -228856 -1 -1 0 256;
+#X obj 34 112 nbx 4 20 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-228856 -1 -1 0 256;
+#X obj 119 112 nbx 4 20 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-228856 -1 -1 0 256;
 #X text 2 139 --------------------------------;
 #X connect 7 0 1 0;
 #X connect 7 0 14 0;
@@ -45,7 +45,7 @@
 #X connect 13 0 11 0;
 #X coords 0 -1 1 1 230 65 1 1 90;
 #X restore 52 51 pd datos;
-#N canvas 148 14 1062 664 interfaz 0;
+#N canvas 160 81 1062 662 interfaz 0;
 #X obj 200 24 gemhead;
 #X obj 200 609 square;
 #X obj 200 228 translateXYZ;
@@ -469,18 +469,18 @@
 #X msg -144 215 view 0 0 20 \, perspec -1 1 -1 1 4 50;
 #X msg 285 501 0;
 #X obj -117 460 r cargar_video;
-#X obj 773 171 nbx 4 15 -1e+037 1e+037 0 0 empty \$0-res empty 0 -8
+#X obj 773 171 nbx 4 15 -1e+37 1e+37 0 0 empty \$0-res empty 0 -8 0
+10 -228856 -1 -1 0 256;
+#X obj 773 208 nbx 4 15 -1e+37 1e+37 0 0 empty \$0-resy empty 0 -8
 0 10 -228856 -1 -1 0 256;
-#X obj 773 208 nbx 4 15 -1e+037 1e+037 0 0 empty \$0-resy empty 0 -8
+#X obj 773 247 nbx 4 15 -1e+37 1e+37 0 0 empty \$0-posx empty 0 -8
 0 10 -228856 -1 -1 0 256;
-#X obj 773 247 nbx 4 15 -1e+037 1e+037 0 0 empty \$0-posx empty 0 -8
+#X obj 773 281 nbx 4 15 -1e+37 1e+37 0 0 empty \$0-posy empty 0 -8
 0 10 -228856 -1 -1 0 256;
-#X obj 773 281 nbx 4 15 -1e+037 1e+037 0 0 empty \$0-posy empty 0 -8
-0 10 -228856 -1 -1 0 256;
-#X obj 773 316 nbx 4 15 -1e+037 1e+037 0 0 empty \$0-an empty 0 -8
-0 10 -228856 -1 -1 10 256;
-#X obj 773 350 nbx 4 15 -1e+037 1e+037 0 0 empty \$0-al empty 0 -8
-0 10 -228856 -1 -1 10 256;
+#X obj 773 316 nbx 4 15 -1e+37 1e+37 0 0 empty \$0-an empty 0 -8 0
+10 -228856 -1 -1 10 256;
+#X obj 773 350 nbx 4 15 -1e+37 1e+37 0 0 empty \$0-al empty 0 -8 0
+10 -228856 -1 -1 10 256;
 #X text 725 381 |;
 #X text 725 391 |;
 #X text 725 401 |;
@@ -488,7 +488,7 @@
 #X obj 217 256 r \$0-rz;
 #X obj 217 276 * 9;
 #X obj 272 276 * 9;
-#N canvas 340 265 450 300 cargar 0;
+#N canvas 338 269 450 300 cargar 0;
 #X obj 17 59 declare -path libw/mrpeach;
 #X obj 17 79 declare -path libw/cyclone;
 #X obj 17 39 declare -path libw/gem;
@@ -500,7 +500,7 @@
 #X text 14 130 Linux Libs;
 #X restore -144 298 pd cargar;
 #X text 834 172 D;
-#N canvas 174 115 623 317 conex 0;
+#N canvas 407 257 623 317 conex 0;
 #X obj -837 -305 s \$0-x;
 #X obj -750 -306 s \$0-y;
 #X obj -837 -277 s gx;
@@ -517,19 +517,19 @@
 #X obj -588 -269 s \$0-ry;
 #X obj -531 -269 s \$0-rz;
 #X obj -644 -242 s gt;
-#X obj -644 -350 routeOSC /accelerometer;
 #X obj -464 -317 unpack 0 0 0;
 #X text -458 -287 X;
 #X text -333 -287 Z;
 #X text -391 -287 Y;
-#X obj -464 -269 s \$0-rgx;
-#X obj -401 -269 s \$0-rgy;
-#X obj -338 -269 s \$0-rgz;
-#X obj -464 -350 routeOSC /giroscope;
+#X obj -644 -350 routeOSC /acc;
+#X obj -464 -350 routeOSC /ori;
+#X obj -464 -269 s \$0-ral;
+#X obj -401 -269 s \$0-rbe;
+#X obj -338 -269 s \$0-rga;
 #X connect 4 0 6 0;
 #X connect 4 0 7 0;
-#X connect 4 0 16 0;
-#X connect 4 0 24 0;
+#X connect 4 0 20 0;
+#X connect 4 0 21 0;
 #X connect 5 0 4 0;
 #X connect 6 0 0 0;
 #X connect 6 0 2 0;
@@ -539,17 +539,17 @@
 #X connect 8 0 15 0;
 #X connect 8 1 13 0;
 #X connect 8 2 14 0;
-#X connect 16 0 8 0;
-#X connect 17 0 21 0;
-#X connect 17 1 22 0;
-#X connect 17 2 23 0;
-#X connect 24 0 17 0;
+#X connect 16 0 22 0;
+#X connect 16 1 23 0;
+#X connect 16 2 24 0;
+#X connect 20 0 8 0;
+#X connect 21 0 16 0;
 #X restore -144 277 pd conex;
 #X obj 217 363 r \$0-an;
 #X obj 274 363 r \$0-al;
 #X obj 294 122 r \$0-posy;
 #X obj 222 122 r \$0-posx;
-#N canvas 299 99 671 478 debug 0;
+#N canvas 297 103 671 478 debug 0;
 #X obj 131 31 loadbang;
 #X obj 11 422 print ANIMAP;
 #X obj 14 126 print -n;
@@ -558,47 +558,47 @@
 #X obj 131 87 loadbang;
 #X obj 285 387 r \$0-reset;
 #X msg 285 405 Reset;
-#X msg 131 109 Animap v1.3.0-beta;
 #X obj 365 387 onebang;
 #X obj 365 352 r gx;
 #X msg 365 370 bang;
 #X obj 411 361 loadbang;
-#X msg 365 405 Conexión con Animap Monitor Establecida;
-#X msg 343 306 Flecha Izquierda: Mover Izquierda;
-#X msg 383 228 Tecla W: Aumentar Alto;
-#X msg 373 247 Tecla S: Disminuir Alto;
-#X msg 363 268 Tecla D: Aumentar Ancho;
-#X msg 353 287 Tecla A: Disminuir Ancho;
 #X obj 333 204 r \$0-ayuda;
 #X obj 14 36 r \$0-ayuda;
-#X msg 333 325 Flecha Derecha: Mover Derecha;
 #X obj 51 204 r \$0-video;
-#X msg 51 226 Extensión de Video Soportada: AVI-MOV;
+#X msg 131 109 Animap v1.3.1-beta;
+#X msg 51 226 Video Extension Support: AVI-MOV;
+#X msg 343 306 Key Left: Move Left;
+#X msg 333 325 Key Right: Move Right;
+#X msg 353 287 Key A: Less Width;
+#X msg 364 267 Key D: More Width;
+#X msg 373 247 Key S: Less Height;
+#X msg 383 228 Key W: More Height;
+#X msg 365 405 Conection with Animap Monitor;
 #X connect 0 0 3 0;
 #X connect 3 0 2 0;
-#X connect 4 0 7 0;
+#X connect 4 0 14 0;
 #X connect 5 0 6 0;
 #X connect 6 0 1 0;
-#X connect 7 0 2 0;
-#X connect 8 0 12 0;
-#X connect 9 0 10 0;
-#X connect 10 0 8 0;
-#X connect 11 0 8 1;
-#X connect 12 0 1 0;
-#X connect 13 0 1 0;
-#X connect 14 0 1 0;
+#X connect 7 0 22 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 1;
+#X connect 11 0 21 0;
+#X connect 11 0 20 0;
+#X connect 11 0 19 0;
+#X connect 11 0 18 0;
+#X connect 11 0 16 0;
+#X connect 11 0 17 0;
+#X connect 12 0 3 0;
+#X connect 13 0 15 0;
+#X connect 14 0 2 0;
 #X connect 15 0 1 0;
 #X connect 16 0 1 0;
 #X connect 17 0 1 0;
-#X connect 18 0 14 0;
-#X connect 18 0 15 0;
-#X connect 18 0 16 0;
-#X connect 18 0 17 0;
-#X connect 18 0 13 0;
-#X connect 18 0 20 0;
-#X connect 19 0 3 0;
+#X connect 18 0 1 0;
+#X connect 19 0 1 0;
 #X connect 20 0 1 0;
-#X connect 21 0 22 0;
+#X connect 21 0 1 0;
 #X connect 22 0 1 0;
 #X restore -144 361 pd debug;
 #X obj 642 87 r \$0-reset;
@@ -607,7 +607,7 @@
 #X obj 828 311 bng 20 250 50 0 \$0-ayuda empty ? 5 10 0 18 -228856
 -1 -1;
 #X obj 642 27 loadbang;
-#N canvas 525 226 546 366 texto 0;
+#N canvas 523 230 546 366 texto 0;
 #X obj 141 60 gemhead;
 #X obj 141 226 pix_image;
 #X obj 141 254 pix_texture;
@@ -653,8 +653,8 @@
 #X msg 70 484 auto 0;
 #X obj 70 461 r \$0-stop;
 #X obj -5 441 r \$0-play;
-#X obj 696 459 hsl 150 20 0 641 0 0 \$0-eleFrame empty empty -2 -8
-0 10 -228856 -1 -1 4045 1;
+#X obj 696 459 hsl 150 20 0 0 0 0 \$0-eleFrame empty empty -2 -8 0
+10 -228856 -1 -1 0 1;
 #X msg 693 626 range 0 \$1;
 #X obj 226 549 s \$0-frames;
 #X obj 693 606 r \$0-frames;
@@ -926,7 +926,7 @@
 #X connect 193 0 142 0;
 #X coords 0 -1 1 1 230 340 1 630 150;
 #X restore 52 158 pd interfaz;
-#N canvas 897 126 450 300 cargar 0;
+#N canvas 895 130 450 300 cargar 0;
 #X obj 54 177 openpanel;
 #X obj 44 92 cnv 15 230 40 empty empty empty 20 12 0 14 -203904 -66577
 0;
